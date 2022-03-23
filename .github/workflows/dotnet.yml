@@ -23,7 +23,9 @@ jobs:
       run: dotnet build --no-restore
     - name: Test
       run: dotnet test --no-build --verbosity normal
+    - name: Setup for Test Docs
       run: dotnet tool install --global SpecFlow.Plus.LivingDoc.CLI
+    - name: Generate Test Docs
       run: livingdoc test-assembly dotnetexample-test/bin/Debug/net6.0/dotnetexample-test.dll -t dotnetexample-test/bin/Debug/net6.0/TestExecution.json -o test-results/TestOutput.html
     - name: Publish Tests
       uses: peaceiris/actions-gh-pages@v3
