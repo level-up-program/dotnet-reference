@@ -1,11 +1,9 @@
 clean:
-	- cd dotnetexample; dotnet clean
-	- cd dotnetexample-test; dotnet clean
+	- dotnet clean
 
 build: clean
-	- cd dotnetexample; dotnet build
-	- cd dotnetexample-test; dotnet build
+	- dotnet build
 
 test:
-	cd dotnetexample-test; dotnet test
-	cd dotnetexample-test/bin/Debug/net6.0; 
+	- dotnet test
+	- livingdoc test-assembly dotnetexample-test/bin/Debug/net6.0/dotnetexample-test.dll -t dotnetexample-test/bin/Debug/net6.0/TestExecution.json -o test-results/TestOutput.html
