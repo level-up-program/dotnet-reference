@@ -15,5 +15,5 @@ jobs:
     - uses: actions/checkout@v2
       
     - name: Run build
-      Working-directory: ./dotnetexample
+      working-directory: ./dotnetexample
       run: dotnet build
