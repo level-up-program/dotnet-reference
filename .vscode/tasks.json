@@ -2,15 +2,29 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "build",
+            "label": "build-main",
             "command": "dotnet",
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/DotNetExample/dotnetexample.csproj",
+                "${workspaceFolder}/DotNetExample/DotNetExample.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
+            "group":"build",
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "build-tests",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/DotNetExample.Tests/DotNetExample.Tests.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "group":"build",
             "problemMatcher": "$msCompile"
         },
         {

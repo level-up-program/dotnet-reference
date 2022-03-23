@@ -1,3 +1,6 @@
+setup:
+	- dotnet tool install --global SpecFlow.Plus.LivingDoc.CLI
+
 clean:
 	- dotnet clean
 
