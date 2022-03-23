@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <RootNamespace>dotnetexample_test</RootNamespace>
+    <RootNamespace>DotNetExample.Test</RootNamespace>
     <Nullable>enable</Nullable>
 
     <IsPackable>false</IsPackable>
@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\dotnetexample\dotnetexample.csproj" />
+    <ProjectReference Include="..\DotNetExample\DotNetExample.csproj" />
   </ItemGroup>
 
 </Project>

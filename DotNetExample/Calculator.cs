@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace dotnetexample
+namespace DotNetExample
 {
     public class Calculator
     {
@@ -10,10 +10,6 @@ namespace dotnetexample
         public int Add()
         {
             return FirstNumber + SecondNumber;
-        }
-
-        static void Main(string[] args) {
-            
         }
     }
 }
