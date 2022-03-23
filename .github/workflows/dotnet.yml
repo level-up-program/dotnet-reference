@@ -2,7 +2,7 @@ name: .NET
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, develop ]
   pull_request:
     branches: [ main ]
 
@@ -18,11 +18,8 @@ jobs:
       with:
         dotnet-version: 5.0.x
     - name: Restore dependencies
-      working-directory: dotnetexample
       run: dotnet restore
     - name: Build
-      working-directory: dotnetexample
       run: dotnet build --no-restore
     - name: Test
-      working-directory: dotnetexample-test
       run: dotnet test --no-build --verbosity normal
