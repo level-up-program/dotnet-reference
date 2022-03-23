@@ -8,4 +8,4 @@ build: clean
 
 test:
 	cd dotnetexample-test; dotnet test
-	cd dotnetexample-test/bin/Debug/net6.0; livingdoc test-assembly dotnetexample-test.dll -t TestExecution.json
+	cd dotnetexample-test/bin/Debug/net6.0; 
