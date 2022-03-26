@@ -1,4 +1,5 @@
-setup:
+# This is not required in coder - already in image
+setup-local:
 	- dotnet tool install --global SpecFlow.Plus.LivingDoc.CLI
 
 clean:
