@@ -2,7 +2,10 @@
 setup-local:
 	- dotnet tool install --global SpecFlow.Plus.LivingDoc.CLI
 
-clean:
+lint:
+	- dotnet format
+
+clean: lint
 	- dotnet clean
 
 build: clean
