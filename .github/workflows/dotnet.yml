@@ -18,11 +18,11 @@ jobs:
       with:
         dotnet-version: 6.0.x
     - name: Restore dependencies
-      run: dotnet restore
+      run: make setup
     - name: Build
-      run: dotnet build --no-restore
+      run: make cibuild
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: make citest
     - name: Publish Tests
       uses: peaceiris/actions-gh-pages@v3
       if: github.ref == 'refs/heads/develop'
