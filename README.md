@@ -1,5 +1,6 @@
 # Erin doesn't know .Net...but she's sure gonna try!
 This is a very simple solution to demonstrate SpecFlow and living-doc, as well as simple commands for C# outside of Visual Studio.
+* "make bootstrap" will install the plugin necessary for SpecFlow results (only required if you are building locally)
 * "make build" will clean and build this thing
 * "make test" will run only unit tests 
 * "make verify" will run and generate pretty output for SpecFlow tests in test-results folder

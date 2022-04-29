@@ -11,9 +11,6 @@ bootstrap:
 setup:
 	dotnet restore
 
-lint:
-	dotnet format
-
 run:
 	dotnet run --project DotNetExample
 
@@ -21,7 +18,7 @@ clean:
 	dotnet clean
 	rm -rf ./test-results
 
-build: clean lint
+build: clean
 	dotnet build
 
 test: build
@@ -32,6 +29,8 @@ verify: build
 	- cp -r DotNetExample.Tests/resources ./test-results
 # May need export for M1 Mac Architecture
 	- export DOTNET_ROOT=$(which dotnet) & livingdoc test-assembly DotNetExample.Tests/bin/Debug/net6.0/DotNetExample.Tests.dll -t DotNetExample.Tests/bin/Debug/net6.0/TestExecution.json -o test-results/TestOutput.html
+
+test-all: test verify
 
 cibuild: 
 	dotnet build --no-restore
