@@ -32,6 +32,9 @@ verify: build
 
 test-all: test verify
 
+execute: 
+	dotnet run --project ./DotNetExample/DotNetExample.csproj
+
 cibuild: 
 	dotnet build --no-restore
 

@@ -18,7 +18,7 @@ namespace levelup
 
         public void createCharacter(String playerName)
         {
-            if (!playerName.Equals(""))
+            if (playerName!=null && !playerName.Equals(""))
             {
                 this.status.playerName = playerName;
             }
