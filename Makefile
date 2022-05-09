@@ -32,7 +32,7 @@ test-all: test verify
 run:
 	dotnet run --project LevelUpGame
 
-cibuild: 
+cibuild: bootstrap
 	dotnet build --no-restore
 
 citest:
