@@ -37,3 +37,6 @@ cibuild:
 
 citest:
 	dotnet test --no-build --verbosity normal
+	- cp -r LevelUpGame.Tests/resources ./test-results
+# May need export for M1 Mac Architecture
+	- export DOTNET_ROOT=$(which dotnet) & livingdoc test-assembly LevelUpGame.Tests/bin/Debug/net6.0/LevelUpGame.Tests.dll -t LevelUpGame.Tests/bin/Debug/net6.0/TestExecution.json -o test-results/TestOutput.html
