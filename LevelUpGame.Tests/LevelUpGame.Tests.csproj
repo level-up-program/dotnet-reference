@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <RootNamespace>DotNetExample.Test</RootNamespace>
+    <RootNamespace>LevelUpGame.Test</RootNamespace>
     <Nullable>enable</Nullable>
 
     <IsPackable>false</IsPackable>
@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DotNetExample\DotNetExample.csproj" />
+    <ProjectReference Include="..\LevelUpGame\LevelUpGame.csproj" />
   </ItemGroup>
 
 </Project>
