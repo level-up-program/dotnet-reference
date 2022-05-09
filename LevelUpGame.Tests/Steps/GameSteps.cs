@@ -29,12 +29,12 @@ namespace DotNetExample.Tests.Steps
         public void whenThePlayerSetsTheirName()
         {
             testObj = new GameController();
-            testObj.createCharacter(playerName);
+            testObj.CreateCharacter(playerName);
         }
         [Then(@"the Game sets the player's name to ""(.*)""")]
         public void ThenTheResultShouldBe(string playerNameOutput)
         {
-            testObj.getStatus().playerName.Should().Be(playerNameOutput);
+            testObj.GetStatus().playerName.Should().Be(playerNameOutput);
         }
     }
 }

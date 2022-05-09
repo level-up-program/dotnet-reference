@@ -11,9 +11,6 @@ bootstrap:
 setup:
 	dotnet restore
 
-run:
-	dotnet run --project DotNetExample
-
 clean: 
 	dotnet clean
 	rm -rf ./test-results
@@ -26,14 +23,20 @@ test: build
 
 verify: build
 	- dotnet test --filter "TestCategory=acceptance"
-	- cp -r DotNetExample.Tests/resources ./test-results
+	- cp -r LevelUpGame.Tests/resources ./test-results
 # May need export for M1 Mac Architecture
-	- export DOTNET_ROOT=$(which dotnet) & livingdoc test-assembly DotNetExample.Tests/bin/Debug/net6.0/DotNetExample.Tests.dll -t DotNetExample.Tests/bin/Debug/net6.0/TestExecution.json -o test-results/TestOutput.html
+	- export DOTNET_ROOT=$(which dotnet) & livingdoc test-assembly LevelUpGame.Tests/bin/Debug/net6.0/LevelUpGame.Tests.dll -t LevelUpGame.Tests/bin/Debug/net6.0/TestExecution.json -o test-results/TestOutput.html
 
 test-all: test verify
 
-cibuild: 
+run:
+	dotnet run --project LevelUpGame
+
+cibuild: bootstrap
 	dotnet build --no-restore
 
 citest:
 	dotnet test --no-build --verbosity normal
+	- cp -r LevelUpGame.Tests/resources ./test-results
+# May need export for M1 Mac Architecture
+	- export DOTNET_ROOT=$(which dotnet) & livingdoc test-assembly LevelUpGame.Tests/bin/Debug/net6.0/LevelUpGame.Tests.dll -t LevelUpGame.Tests/bin/Debug/net6.0/TestExecution.json -o test-results/TestOutput.html
