@@ -10,7 +10,7 @@ clean:
 
 # This is not required in coder - already in image
 bootstrap: 
-	dotnet tool install --global SpecFlow.Plus.LivingDoc.CLI
+	- dotnet tool install --global SpecFlow.Plus.LivingDoc.CLI
 	dotnet restore
 
 build: clean
