@@ -19,7 +19,7 @@ namespace DotNetExample.Tests.Steps
             //   _scenarioContext = scenarioContext;
         }
 
-        [Given(@"the player's name is ""(.*)""")]
+        [Given(@"the player's name is (.*)")]
         public void GivenThePlayersNameIs(string playerNameInput)
         {
             this.playerName = playerNameInput;
@@ -31,7 +31,7 @@ namespace DotNetExample.Tests.Steps
             testObj = new GameController();
             testObj.CreateCharacter(playerName);
         }
-        [Then(@"the Game sets the player's name to ""(.*)""")]
+        [Then(@"the Game sets the player's name to (.*)")]
         public void ThenTheResultShouldBe(string playerNameOutput)
         {
             testObj.GetStatus().playerName.Should().Be(playerNameOutput);
