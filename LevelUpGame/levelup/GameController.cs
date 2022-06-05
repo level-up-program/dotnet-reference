@@ -1,3 +1,5 @@
+using System.Drawing;
+
 namespace levelup
 {
     public class GameController
@@ -8,7 +10,8 @@ namespace levelup
 
         public record struct GameStatus(
             // TODO: Add other status data
-            String playerName
+            String playerName,
+            Point currentPosition
         );
 
         // TODO: Ensure this AND CLI commands match domain model
@@ -56,7 +59,10 @@ namespace levelup
             //TODO: Should probably also update the game status
         }
 
-
+        public void SetCharacterPosition(Point coordinates)
+        {
+            //TODO: IMPLEMENT THIS TO SET CHARACTERS CURRENT POSITION -- exists to be testable
+        }
 
 
     }

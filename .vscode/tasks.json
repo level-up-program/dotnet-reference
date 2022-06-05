@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/DotNetExample/DotNetExample.csproj",
+                "${workspaceFolder}/LevelUpGame/LevelUpGame.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -20,7 +20,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/DotNetExample.Tests/DotNetExample.Tests.csproj",
+                "${workspaceFolder}/LevelUpGame.Tests/LevelUpGame.Tests.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -33,7 +33,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/DotNetExample/dotnetexample.csproj",
+                "${workspaceFolder}/LevelUpGame/LevelUpGame.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -47,7 +47,7 @@
                 "watch",
                 "run",
                 "--project",
-                "${workspaceFolder}/DotNetExample/dotnetexample.csproj"
+                "${workspaceFolder}/LevelUpGame/LevelUpGame.csproj"
             ],
             "problemMatcher": "$msCompile"
         }
