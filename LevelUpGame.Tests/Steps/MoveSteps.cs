@@ -15,19 +15,19 @@ namespace DotNetExample.Tests.Steps
         GameController.DIRECTION direction;
         Point currentPosition;
 
-        [Given(@"the character starts at position with XCoordinates {int}")]
+        [Given(@"the character starts at position with XCoordinates (.*)")]
         public void givenTheCharacterStartsAtX(int startX)
         {
             this.startX = startX;
         }
 
-        [Given(@"starts at YCoordinates {int}")]
+        [Given(@"starts at YCoordinates (.*)")]
         public void givenTheCharacterStartsAtY(int startY)
         {
             this.startY = startY;
         }
 
-        [Given(@"the player chooses to move in {word}")]
+        [Given(@"the player chooses to move in (.*)")]
         public void givenPlayerChoosesDirection(String direction) {
             this.direction = (GameController.DIRECTION) Enum.Parse(typeof(GameController.DIRECTION) , direction);
         }
@@ -41,18 +41,18 @@ namespace DotNetExample.Tests.Steps
             this.currentPosition = status.currentPosition;
         }
 
-        [Then(@"the character is now at position with XCoordinates {int}")]
+        [Then(@"the character is now at position with XCoordinates (.*)")]
         public void checkXCoordinates(int endX)
         {
             Assert.NotNull(this.currentPosition, "Expected position not null" );
-            Assert.Equals(endX, this.currentPosition.X);
+            Assert.AreEqual(endX, this.currentPosition.X);
         }
 
-        [Then(@"YCoordinates {int}")]
+        [Then(@"YCoordinates  (.*)")]
         public void checkYCoordinates(int endY)
         {
             Assert.NotNull(this.currentPosition, "Expected position not null");
-            Assert.Equals(endY, this.currentPosition.Y);
+            Assert.AreEqual(endY, this.currentPosition.Y);
         }
     }
 }

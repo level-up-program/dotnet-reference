@@ -25,6 +25,8 @@ namespace levelup
         public GameController()
         {
             status.playerName = DEFAULT_PLAYER_NAME;
+            //Set current position to a nonsense place until you figure out who should initialize
+            status.currentPosition = new Point(-1,-1);
         }
 
         // Pre-implemented to demonstrate ATDD
