@@ -7,22 +7,66 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  build-and-test:
 
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
+
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 6.0.x
+
     - name: Restore dependencies
       run: make bootstrap
+
     - name: Build
       run: make cibuild
+
     - name: Test
-      run: make citest
+      run: make test
+
+  acceptance-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 6.0.x
+
+    - name: Restore dependencies
+      run: make bootstrap
+
+    - name: Build
+      run: make cibuild
+
+    - name: Run acceptance tests
+      run: make test-acceptance
+
+    - name: Cache test output
+      uses: actions/cache@v3
+      with:
+        path: ./test-results
+        key: test-output-dir-${{ runner.os }}-${{ github.sha }}
+
+  publish-tests:
+    needs: acceptance-test
+    if: ${{ always() }}
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Fetch cache test output
+      uses: actions/cache@v3
+      with:
+        path: ./test-results
+        key: test-output-dir-${{ runner.os }}-${{ github.sha }}
+
     - name: Publish Tests
       uses: peaceiris/actions-gh-pages@v3
       with:
