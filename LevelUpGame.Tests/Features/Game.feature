@@ -3,14 +3,14 @@ Feature: Game
     I want to create a new custom character, setting their name
 
 @acceptance 
-Scenario Outline: Set player name
+Scenario Outline: Set character name
     Character creation is currently split to be very simple: the only customization is setting the name.
 
-    Given the player's name is <playerNameInput>
-    When the player sets their name
-    Then the Game sets the player's name to <playerNameOutput>
+    Given the character's name is <characterNameInput>
+    When the character sets their name
+    Then the Game sets the character's name to <characterNameOutput>
     Examples:
 
-        | playerNameInput | playerNameOutput |  
+        | characterNameInput | characterNameOutput |  
         | Erin            | Erin             |
-        |                 | Player           |
+        |                 | Character           |

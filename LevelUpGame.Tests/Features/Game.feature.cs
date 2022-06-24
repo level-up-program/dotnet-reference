@@ -75,11 +75,11 @@ namespace LevelUpGame.Test.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Set player name")]
+        [NUnit.Framework.DescriptionAttribute("Set character name")]
         [NUnit.Framework.CategoryAttribute("acceptance")]
         [NUnit.Framework.TestCaseAttribute("Erin", "Erin", null)]
-        [NUnit.Framework.TestCaseAttribute("", "Player", null)]
-        public void SetPlayerName(string playerNameInput, string playerNameOutput, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("", "Character", null)]
+        public void SetCharacterName(string characterNameInput, string characterNameOutput, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "acceptance"};
@@ -89,9 +89,9 @@ namespace LevelUpGame.Test.Features
             }
             string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            argumentsOfScenario.Add("playerNameInput", playerNameInput);
-            argumentsOfScenario.Add("playerNameOutput", playerNameOutput);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Set player name", "    Character creation is currently split to be very simple: the only customizati" +
+            argumentsOfScenario.Add("characterNameInput", characterNameInput);
+            argumentsOfScenario.Add("characterNameOutput", characterNameOutput);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Set character name", "    Character creation is currently split to be very simple: the only customizati" +
                     "on is setting the name.", tagsOfScenario, argumentsOfScenario, featureTags);
 #line 6
 this.ScenarioInitialize(scenarioInfo);
@@ -104,13 +104,13 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 9
-    testRunner.Given(string.Format("the player\'s name is {0}", playerNameInput), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given(string.Format("the character\'s name is {0}", characterNameInput), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 10
-    testRunner.When("the player sets their name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.When("the character sets their name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 11
-    testRunner.Then(string.Format("the Game sets the player\'s name to {0}", playerNameOutput), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then(string.Format("the Game sets the character\'s name to {0}", characterNameOutput), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
