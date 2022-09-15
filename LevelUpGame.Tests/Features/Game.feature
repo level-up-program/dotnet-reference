@@ -14,4 +14,3 @@ Scenario Outline: Set character name
         | characterNameInput | characterNameOutput |  
         | Erin            | Erin             |
         |                 | Character           |
-        | This test |  Will break |
