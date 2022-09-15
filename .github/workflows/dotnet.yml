@@ -46,7 +46,15 @@ jobs:
       run: make cibuild
 
     - name: Run acceptance tests
-      run: make test-acceptance
+      run: dotnet test --filter "TestCategory=acceptance"
+
+    - name: Copy results
+      if: always()
+      run: cp -r LevelUpGame.Tests/resources ./test-results
+
+    - name: Export pretty results
+      if: always()
+      run: export DOTNET_ROOT=$(which dotnet) & livingdoc test-assembly LevelUpGame.Tests/bin/Debug/net6.0/LevelUpGame.Tests.dll -t LevelUpGame.Tests/bin/Debug/net6.0/TestExecution.json -o test-results/TestOutput.html
 
     - name: Cache test output
       if: always()
