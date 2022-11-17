@@ -12,29 +12,29 @@ namespace DotNetExample.Tests.Steps
         // private readonly ScenarioContext _scenarioContext;
         private GameController testObj = new GameController();
 
-        private String playerName = "";
+        private String characterName = "";
 
         public GameSteps(ScenarioContext scenarioContext)
         {
             //   _scenarioContext = scenarioContext;
         }
 
-        [Given(@"the player's name is (.*)")]
-        public void GivenThePlayersNameIs(string playerNameInput)
+        [Given(@"the character's name is (.*)")]
+        public void GivenTheCharactersNameIs(string characterNameInput)
         {
-            this.playerName = playerNameInput;
+            this.characterName = characterNameInput;
         }
 
         [When(@"the player sets their name")]
         public void whenThePlayerSetsTheirName()
         {
             testObj = new GameController();
-            testObj.CreateCharacter(playerName);
+            testObj.CreateCharacter(characterName);
         }
-        [Then(@"the Game sets the player's name to (.*)")]
-        public void ThenTheResultShouldBe(string playerNameOutput)
+        [Then(@"the Game sets the character's name to (.*)")]
+        public void ThenTheResultShouldBe(string characterNameOutput)
         {
-            testObj.GetStatus().playerName.Should().Be(playerNameOutput);
+            testObj.GetStatus().characterName.Should().Be(characterNameOutput);
         }
     }
 }

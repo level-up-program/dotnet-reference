@@ -6,11 +6,11 @@ namespace levelup
     {
         // TODO: If your stakeholder wants to call this CHARACTER, change var name for
         // low representational gap
-        public readonly string DEFAULT_PLAYER_NAME = "Player";
+        public readonly string DEFAULT_CHARACTER_NAME = "Erin";
 
         public record struct GameStatus(
             // TODO: Add other status data
-            String playerName,
+            String characterName,
             Point currentPosition
         );
 
@@ -24,7 +24,7 @@ namespace levelup
 
         public GameController()
         {
-            status.playerName = DEFAULT_PLAYER_NAME;
+            status.characterName = DEFAULT_CHARACTER_NAME;
             //Set current position to a nonsense place until you figure out who should initialize
             status.currentPosition = new Point(-1,-1);
         }
@@ -35,17 +35,17 @@ namespace levelup
         {
             if (name != null && !name.Equals(""))
             {
-                this.status.playerName = name;
+                this.status.characterName = name;
             }
             else
             {
-                this.status.playerName = DEFAULT_PLAYER_NAME;
+                this.status.characterName = DEFAULT_CHARACTER_NAME;
             }
         }
 
         public void StartGame()
         {
-            // TODO: Implement startGame - Should probably create tiles and put the player
+            // TODO: Implement startGame - Should probably create tiles and put the character
             // on them?
             // TODO: Should also update the game status?
         }
