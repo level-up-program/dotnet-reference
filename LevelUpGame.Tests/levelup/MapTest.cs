@@ -4,7 +4,7 @@ using levelup;
 namespace levelup
 {
     [TestFixture]
-    public class GameControllerTest
+    public class PrimeService_IsPrimeShould
     {
         private GameController? testObj;
 
