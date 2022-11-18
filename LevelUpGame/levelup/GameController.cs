@@ -1,4 +1,4 @@
-using System.Drawing;
+
 
 namespace levelup
 {
@@ -11,7 +11,7 @@ namespace levelup
         public record struct GameStatus(
             // TODO: Add other status data
             String characterName,
-            Point currentPosition
+            Position currentPosition
         );
 
         // TODO: Ensure this AND CLI commands match domain model
@@ -26,7 +26,7 @@ namespace levelup
         {
             status.characterName = DEFAULT_CHARACTER_NAME;
             //Set current position to a nonsense place until you figure out who should initialize
-            status.currentPosition = new Point(-1,-1);
+            status.currentPosition = new Position(-1,-1);
         }
 
         // Pre-implemented to demonstrate ATDD
@@ -61,7 +61,7 @@ namespace levelup
             //TODO: Should probably also update the game status
         }
 
-        public void SetCharacterPosition(Point coordinates)
+        public void SetCharacterPosition(int x, int y)
         {
             //TODO: IMPLEMENT THIS TO SET CHARACTERS CURRENT POSITION -- exists to be testable
         }
