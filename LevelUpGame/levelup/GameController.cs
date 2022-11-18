@@ -44,10 +44,14 @@ namespace levelup
 
         public void StartGame()
         {
-            // TODO: Implement startGame - Should probably create tiles and put the character
-            // on them?
-            // TODO: Should also update the game status?
             gameMap = new GameMap();
+            if (character == null)
+            {
+                CreateCharacter("");
+            }
+            character.EnterMap(gameMap);
+            this.status.characterName = character.Name;
+            this.status.currentPosition = character.Position;
         }
 
         public GameStatus GetStatus()

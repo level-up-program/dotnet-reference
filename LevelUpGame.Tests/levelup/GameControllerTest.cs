@@ -1,5 +1,5 @@
-using NUnit.Framework;
 using levelup;
+using NUnit.Framework;
 
 namespace levelup
 {
@@ -26,6 +26,7 @@ namespace levelup
         {
             testObj.CreateCharacter("ARBITRARY NAME");
             Assert.AreEqual("ARBITRARY NAME", testObj.character.Name);
+            Assert.AreEqual("ARBITRARY NAME", testObj.GetStatus().characterName);
         }
 
         [Test]
@@ -33,6 +34,16 @@ namespace levelup
         {
             testObj.StartGame();
             Assert.NotNull(testObj.gameMap);
+        }
+
+        [Test]
+        public void StartGameEntersMapAndUpdatesStatus() 
+        {
+            FakeGameMap fakeMap = new FakeGameMap();
+            testObj.gameMap = fakeMap;
+            testObj.StartGame();
+            Assert.AreEqual(fakeMap.startingPosition.x, testObj.GetStatus().currentPosition.x);
+            Assert.AreEqual(fakeMap.startingPosition.y, testObj.GetStatus().currentPosition.y);
         }
     }
 }
