@@ -27,14 +27,44 @@ namespace levelup
 
         public Position CalculateNewPosition(Position currentPosition, GameController.DIRECTION direction)
         {
+            Position newPos = new Position(-1,-1);
             if(direction == GameController.DIRECTION.EAST)
             {
-                return new Position(currentPosition.x + 1, currentPosition.y);
+                newPos = new Position(currentPosition.x + 1, currentPosition.y);
             }
-            return null;
+            else if (direction == GameController.DIRECTION.WEST)
+            {
+                newPos = new Position(currentPosition.x - 1, currentPosition.y);
+            }
+            else if (direction == GameController.DIRECTION.NORTH)
+            {
+                newPos = new Position(currentPosition.x, currentPosition.y + 1);
+            }
+            else if (direction == GameController.DIRECTION.SOUTH)
+            {
+                newPos = new Position(currentPosition.x, currentPosition.y - 1);
+            }
+
+            if ( IsPositionValid(newPos)) 
+            {
+                return newPos;
+            }
+            else 
+            {
+                return currentPosition;
+            }
         }
 
-
+        public bool IsPositionValid(Position pos)
+        {
+            if (pos.x >= 0 && pos.x < 10 && pos.y >=0 && pos.y < 10)
+            {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
 
     }
 }
