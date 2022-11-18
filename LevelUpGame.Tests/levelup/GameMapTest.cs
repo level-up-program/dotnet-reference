@@ -30,7 +30,8 @@ namespace levelup
         {
             Position startPos = testObj.positions[3,4];
             Position newPos = testObj.CalculateNewPosition(startPos, GameController.DIRECTION.EAST);
-            
+            Assert.AreEqual(4, newPos.x);
+            Assert.AreEqual(4, newPos.y);
         }
 
        

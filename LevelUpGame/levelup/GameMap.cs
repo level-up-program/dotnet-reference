@@ -27,6 +27,10 @@ namespace levelup
 
         public Position CalculateNewPosition(Position currentPosition, GameController.DIRECTION direction)
         {
+            if(direction == GameController.DIRECTION.EAST)
+            {
+                return new Position(currentPosition.x + 1, currentPosition.y);
+            }
             return null;
         }
 
