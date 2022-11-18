@@ -70,7 +70,14 @@ namespace levelup
 
         public void SetCharacterPosition(int x, int y)
         {
-            //TODO: IMPLEMENT THIS TO SET CHARACTERS CURRENT POSITION -- exists to be testable
+           character.Position = new Position(x,y);
+           this.status.currentPosition = character.Position;
+        }
+
+        public void SetMoveCount(int moveCount)
+        {
+            character.moveCount = moveCount;
+            this.status.moveCount = character.moveCount;
         }
 
     }
