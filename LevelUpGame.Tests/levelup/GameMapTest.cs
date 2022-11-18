@@ -29,6 +29,8 @@ namespace levelup
         public void TestCalcPositionInCenterOfBoard()
         {
             Position startPos = testObj.positions[3,4];
+            Position newPos = testObj.CalculateNewPosition(startPos, GameController.DIRECTION.EAST);
+            
         }
 
        
