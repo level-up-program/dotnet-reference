@@ -3,8 +3,8 @@ namespace levelup
 {
     public class GameMap
     {
-        public Position[,]? positions;
-        public Position? startingPosition;
+        public Position[,]? positions { get; set; }
+        public Position? startingPosition { get; set; }
 
         public GameMap()
         {
@@ -25,7 +25,7 @@ namespace levelup
             startingPosition = positions[0,0];
         }
 
-        public Position CalculateNewPosition(Position currentPosition, GameController.DIRECTION direction)
+        public virtual Position CalculateNewPosition(Position currentPosition, GameController.DIRECTION direction)
         {
             Position newPos = new Position(-1,-1);
             if(direction == GameController.DIRECTION.EAST)
