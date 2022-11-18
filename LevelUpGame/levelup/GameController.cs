@@ -4,7 +4,7 @@ namespace levelup
 {
     public class GameController
     {
-        public readonly string DEFAULT_CHARACTER_NAME = "Erin";
+        public readonly string DEFAULT_CHARACTER_NAME = "Character";
         public Character? character { get; set; }
         public GameMap? gameMap { get; set; }
 

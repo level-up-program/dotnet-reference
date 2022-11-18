@@ -33,6 +33,8 @@ namespace DotNetExample.Tests.Steps
         [When(@"the character moves")]
         public void whenTheCharacterMoves()
         {
+            testObj.CreateCharacter("");
+            testObj.StartGame();
             testObj.SetCharacterPosition(this.startX, this.startY);
             testObj.Move(this.direction);
             GameController.GameStatus status = testObj.GetStatus();
