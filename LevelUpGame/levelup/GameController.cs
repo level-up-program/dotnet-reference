@@ -11,7 +11,8 @@ namespace levelup
         public record struct GameStatus(
             // TODO: Add other status data
             String characterName,
-            Position currentPosition
+            Position currentPosition,
+            int moveCount
         );
 
         // TODO: Ensure this AND CLI commands match domain model
@@ -27,6 +28,7 @@ namespace levelup
             status.characterName = DEFAULT_CHARACTER_NAME;
             //Set current position to a nonsense place until you figure out who should initialize
             status.currentPosition = new Position(-1,-1);
+            status.moveCount = 0;
         }
 
         public void CreateCharacter(String name)
@@ -61,15 +63,15 @@ namespace levelup
 
         public void Move(DIRECTION directionToMove)
         {
-            //TODO: Implement move - should call something on another class
-            //TODO: Should probably also update the game status
+            character.Move(directionToMove);
+            this.status.currentPosition = character.Position;
+            this.status.moveCount = character.moveCount;
         }
 
         public void SetCharacterPosition(int x, int y)
         {
             //TODO: IMPLEMENT THIS TO SET CHARACTERS CURRENT POSITION -- exists to be testable
         }
-
 
     }
 }

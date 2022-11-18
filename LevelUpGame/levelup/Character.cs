@@ -9,9 +9,15 @@ namespace levelup
 
         public int moveCount { get; set; }
 
-        public Character(String name)
+        public Character(string name)
         {
             this.Name = name;
+            this.moveCount = 0;
+        }
+
+        public Character()
+        {
+            this.Name = "";
             this.moveCount = 0;
         }
 
@@ -21,7 +27,7 @@ namespace levelup
             this.Position = map.startingPosition;
         }
 
-        public void Move(GameController.DIRECTION direction)
+        public virtual void Move(GameController.DIRECTION direction)
         {
             if (this.gameMap != null)
             {
