@@ -4,9 +4,9 @@ namespace levelup
 {
     public class GameController
     {
-        // TODO: If your stakeholder wants to call this CHARACTER, change var name for
-        // low representational gap
         public readonly string DEFAULT_CHARACTER_NAME = "Erin";
+        public Character? character { get; set; }
+        public GameMap? gameMap { get; set; }
 
         public record struct GameStatus(
             // TODO: Add other status data
@@ -29,18 +29,17 @@ namespace levelup
             status.currentPosition = new Position(-1,-1);
         }
 
-        // Pre-implemented to demonstrate ATDD
-        // TODO: Update this if it does not match your design
         public void CreateCharacter(String name)
         {
             if (name != null && !name.Equals(""))
             {
-                this.status.characterName = name;
+                this.character = new Character(name);   
             }
             else
             {
-                this.status.characterName = DEFAULT_CHARACTER_NAME;
+                this.character = new Character(DEFAULT_CHARACTER_NAME);
             }
+            this.status.characterName = character.Name;
         }
 
         public void StartGame()
@@ -48,6 +47,7 @@ namespace levelup
             // TODO: Implement startGame - Should probably create tiles and put the character
             // on them?
             // TODO: Should also update the game status?
+            gameMap = new GameMap();
         }
 
         public GameStatus GetStatus()

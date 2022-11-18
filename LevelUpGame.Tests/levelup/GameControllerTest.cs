@@ -17,8 +17,22 @@ namespace levelup
         [Test]
         public void IsGameResultInitialized()
         {
-#pragma warning disable CS8602 // Rethrow to preserve stack details
+            #pragma warning disable CS8602 // Rethrow to preserve stack details
             Assert.IsNotNull(testObj.GetStatus());
+        }
+
+        [Test]
+        public void CreateCharacterInitsChar()
+        {
+            testObj.CreateCharacter("ARBITRARY NAME");
+            Assert.AreEqual("ARBITRARY NAME", testObj.character.Name);
+        }
+
+        [Test]
+        public void StartGameCreatesMap()
+        {
+            testObj.StartGame();
+            Assert.NotNull(testObj.gameMap);
         }
     }
 }
