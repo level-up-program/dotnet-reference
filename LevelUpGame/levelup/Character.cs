@@ -7,9 +7,12 @@ namespace levelup
         public Position? Position { get; set; }
         public GameMap? gameMap { get; set; }
 
+        public int moveCount { get; set; }
+
         public Character(String name)
         {
             this.Name = name;
+            this.moveCount = 0;
         }
 
         public void EnterMap(GameMap map)
@@ -20,7 +23,14 @@ namespace levelup
 
         public void Move(GameController.DIRECTION direction)
         {
-            this.Position = gameMap.CalculateNewPosition(this.Position, direction);
+            if (this.gameMap != null)
+            {
+                this.Position = gameMap.CalculateNewPosition(this.Position, direction);
+                this.moveCount+=1;
+            }
+            else {
+                this.Position = null;
+            }
         }
 
     }
