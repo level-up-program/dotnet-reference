@@ -72,7 +72,7 @@ namespace levelup
             //TODO: IMPLEMENT THIS TO SET CURRENT MOVE COUNT -- exists to be testable
         }
 
-        public int getTotalPositions()
+        public int GetTotalPositions()
         {
             //TODO: IMPLEMENT THIS TO GET THE TOTAL POSITIONS FROM THE MAP -- exists to be testable
             return -10;

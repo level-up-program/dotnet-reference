@@ -21,7 +21,7 @@ namespace DotNetExample.Tests.Steps
         [Then(@"the Game has (.*) positions")]
         public void checkPositionCount(int numPositions)
         {
-            testObj.getTotalPositions().Should().Be(numPositions);
+            testObj.GetTotalPositions().Should().Be(numPositions);
         }
 
         [Then(@"the Game sets the character's X position to (.*)")]
