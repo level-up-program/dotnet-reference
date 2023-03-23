@@ -26,7 +26,8 @@ namespace levelup
             status.characterName = DEFAULT_CHARACTER_NAME;
             //Set current position to a nonsense place until you figure out who should initialize
             status.currentPosition = new Point(-1,-1);
-            status.moveCount = 0;
+            //TODO: Write a failing unit test that will force you to set this to the right number
+            status.moveCount = -100;
         }
 
         // Pre-implemented to demonstrate ATDD
@@ -69,6 +70,12 @@ namespace levelup
         public void SetCurrentMoveCount(int moveCount)
         {
             //TODO: IMPLEMENT THIS TO SET CURRENT MOVE COUNT -- exists to be testable
+        }
+
+        public int getTotalPositions()
+        {
+            //TODO: IMPLEMENT THIS TO GET THE TOTAL POSITIONS FROM THE MAP -- exists to be testable
+            return -10;
         }
 
 

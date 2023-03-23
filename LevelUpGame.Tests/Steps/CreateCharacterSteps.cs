@@ -1,23 +1,17 @@
-using TechTalk.SpecFlow;
 using System;
-using NUnit.Framework;
 using FluentAssertions;
 using levelup;
+using NUnit.Framework;
+using TechTalk.SpecFlow;
 
 namespace DotNetExample.Tests.Steps
 {
     [Binding]
-    public class GameSteps
+    public class CreateCharacterSteps
     {
-        // private readonly ScenarioContext _scenarioContext;
         private GameController testObj = new GameController();
 
         private String characterName = "";
-
-        public GameSteps(ScenarioContext scenarioContext)
-        {
-            //   _scenarioContext = scenarioContext;
-        }
 
         [Given(@"the character's name is (.*)")]
         public void GivenTheCharactersNameIs(string characterNameInput)

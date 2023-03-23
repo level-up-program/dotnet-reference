@@ -1,4 +1,4 @@
-Feature: Game
+Feature: CreateCharacter
 ![Gamer](./gamerErin.png)
     I want to create a new custom character, setting their name
 
@@ -14,3 +14,4 @@ Scenario Outline: Set character name
         | characterNameInput | characterNameOutput |  
         | Erin            | Erin             |
         |                 | Character           |
+
