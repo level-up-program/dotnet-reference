@@ -3,7 +3,7 @@ Feature: Game
     I want to create a new custom character, setting their name
 
 @acceptance 
-Scenario Outline: Set player name
+Scenario Outline: Set character name
     Character creation is currently split to be very simple: the only customization is setting the name.
 
     Given the character's name is <characterNameInput>

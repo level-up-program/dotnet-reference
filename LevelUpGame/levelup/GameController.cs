@@ -4,14 +4,13 @@ namespace levelup
 {
     public class GameController
     {
-        // TODO: If your stakeholder wants to call this CHARACTER, change var name for
-        // low representational gap
         public readonly string DEFAULT_CHARACTER_NAME = "Erin";
 
         public record struct GameStatus(
             // TODO: Add other status data
             String characterName,
-            Point currentPosition
+            Point currentPosition,
+            int moveCount
         );
 
         // TODO: Ensure this AND CLI commands match domain model
@@ -27,6 +26,7 @@ namespace levelup
             status.characterName = DEFAULT_CHARACTER_NAME;
             //Set current position to a nonsense place until you figure out who should initialize
             status.currentPosition = new Point(-1,-1);
+            status.moveCount = 0;
         }
 
         // Pre-implemented to demonstrate ATDD
@@ -45,7 +45,7 @@ namespace levelup
 
         public void StartGame()
         {
-            // TODO: Implement startGame - Should probably create tiles and put the character
+            // TODO: Implement startGame - Should probably create positions and put the character
             // on them?
             // TODO: Should also update the game status?
         }
@@ -64,6 +64,11 @@ namespace levelup
         public void SetCharacterPosition(Point coordinates)
         {
             //TODO: IMPLEMENT THIS TO SET CHARACTERS CURRENT POSITION -- exists to be testable
+        }
+
+        public void SetCurrentMoveCount(int moveCount)
+        {
+            //TODO: IMPLEMENT THIS TO SET CURRENT MOVE COUNT -- exists to be testable
         }
 
 

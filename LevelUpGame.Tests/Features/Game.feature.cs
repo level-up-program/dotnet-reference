@@ -75,11 +75,11 @@ namespace LevelUpGame.Test.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Set player name")]
+        [NUnit.Framework.DescriptionAttribute("Set character name")]
         [NUnit.Framework.CategoryAttribute("acceptance")]
         [NUnit.Framework.TestCaseAttribute("Erin", "Erin", null)]
         [NUnit.Framework.TestCaseAttribute("", "Character", null)]
-        public void SetPlayerName(string characterNameInput, string characterNameOutput, string[] exampleTags)
+        public void SetCharacterName(string characterNameInput, string characterNameOutput, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "acceptance"};
@@ -91,7 +91,7 @@ namespace LevelUpGame.Test.Features
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("characterNameInput", characterNameInput);
             argumentsOfScenario.Add("characterNameOutput", characterNameOutput);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Set player name", "    Character creation is currently split to be very simple: the only customizati" +
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Set character name", "    Character creation is currently split to be very simple: the only customizati" +
                     "on is setting the name.", tagsOfScenario, argumentsOfScenario, featureTags);
 #line 6
 this.ScenarioInitialize(scenarioInfo);
