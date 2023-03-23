@@ -108,8 +108,8 @@ class Game
     {
         var characterName = Prompt.Input<string>("What is your character's name?");
         gameController.CreateCharacter(characterName);
-        var gameStatusPlayerName = gameController.GetStatus().characterName;
-        Console.WriteLine($"Your character, {gameStatusPlayerName}, is created!");
+        var gameStatusCharacterName = gameController.GetStatus().characterName;
+        Console.WriteLine($"Your character, {gameStatusCharacterName}, is created!");
     }
     static void StartGame()
     {
