@@ -108,15 +108,15 @@ class Game
     {
         var characterName = Prompt.Input<string>("What is your character's name?");
         gameController.CreateCharacter(characterName);
-        var gameStatusPlayerName = gameController.GetStatus().characterName;
-        Console.WriteLine($"Your character, {gameStatusPlayerName}, is created!");
+        var gameStatusCharacterName = gameController.GetStatus().characterName;
+        Console.WriteLine($"Your character, {gameStatusCharacterName}, is created!");
     }
     static void StartGame()
     {
         isGameStarted = true;
         gameController.StartGame();
         // TODO: Update this prompt. Also, do you want to get the game status and tell
-        // the player where their character is?
+        // the character where their character is?
         Console.WriteLine("Welcome to Forests and Monsters! You have entered a mysterious place.");
     }
     static void MoveNorth()

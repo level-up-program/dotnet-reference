@@ -4,14 +4,14 @@ namespace levelup
 {
     public class GameController
     {
-        public readonly string DEFAULT_CHARACTER_NAME = "Erin";
+        public readonly string DEFAULT_CHARACTER_NAME = "Character";
 
         public record struct GameStatus(
             // TODO: Add other status data
             String characterName,
             Point currentPosition,
             int moveCount
-        );
+            );
 
         // TODO: Ensure this AND CLI commands match domain model
         public enum DIRECTION
@@ -46,8 +46,7 @@ namespace levelup
 
         public void StartGame()
         {
-            // TODO: Implement startGame - Should probably create positions and put the character
-            // on them?
+            // TODO: Implement startGame - Should probably create positions and put the character on one
             // TODO: Should also update the game status?
         }
 

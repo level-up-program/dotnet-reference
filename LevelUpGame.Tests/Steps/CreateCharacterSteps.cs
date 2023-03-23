@@ -13,19 +13,20 @@ namespace DotNetExample.Tests.Steps
 
         private String characterName = "";
 
-        [Given(@"the character's name is (.*)")]
+        [Given(@"the player supplies the name (.*)")]
         public void GivenTheCharactersNameIs(string characterNameInput)
         {
             this.characterName = characterNameInput;
         }
 
-        [When(@"the player sets their name")]
+        [When(@"the character is created")]
         public void whenThePlayerSetsTheirName()
         {
             testObj = new GameController();
             testObj.CreateCharacter(characterName);
         }
-        [Then(@"the Game sets the character's name to (.*)")]
+        
+        [Then(@"the Game sets the character name to (.*)")]
         public void ThenTheResultShouldBe(string characterNameOutput)
         {
             testObj.GetStatus().characterName.Should().Be(characterNameOutput);

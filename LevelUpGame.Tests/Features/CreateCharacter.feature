@@ -6,12 +6,10 @@ Feature: CreateCharacter
 Scenario Outline: Set character name
     Character creation is currently split to be very simple: the only customization is setting the name.
 
-    Given the character's name is <characterNameInput>
-    When the player sets their name
-    Then the Game sets the character's name to <characterNameOutput>
+    Given the player supplies the name <characterNameInput>
+    When the character is created
+    Then the Game sets the character name to <characterNameOutput>
     Examples:
 
-        | characterNameInput | characterNameOutput |  
+        | characterNameInput | characterNameOutput |
         | Erin            | Erin             |
-        |                 | Character           |
-
