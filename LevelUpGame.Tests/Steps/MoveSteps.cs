@@ -14,7 +14,6 @@ namespace DotNetExample.Tests.Steps
         int startX, startY;
         GameController.DIRECTION direction;
         Point currentPosition;
-        int currentMoveCount;
 
         [Given(@"the character starts at position with XCoordinates (.*)")]
         public void givenTheCharacterStartsAtX(int startX)
@@ -36,7 +35,7 @@ namespace DotNetExample.Tests.Steps
         [Given(@"the current move count is (.*)")]
         public void givenTheCurrentMoveCountIs(int currentMoveCount)
         {
-            testObj.SetCurrentMoveCount(this.currentMoveCount);
+            testObj.SetCurrentMoveCount(currentMoveCount);
         }
 
         [When(@"the character moves")]
@@ -46,7 +45,6 @@ namespace DotNetExample.Tests.Steps
             testObj.Move(this.direction);
             GameController.GameStatus status = testObj.GetStatus();
             this.currentPosition = status.currentPosition;
-            this.currentMoveCount = status.moveCount;
         }
 
         [Then(@"the character is now at position with XCoordinates (.*)")]

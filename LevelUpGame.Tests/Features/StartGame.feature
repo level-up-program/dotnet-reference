@@ -12,7 +12,7 @@ Scenario Outline: Start the game
     And the move count is <startingMoveCount>
     Examples:
 
-        | numPositions | startingPositionX | startingPositionY |
-        | 100          | 0                 | 0                 |
+        | numPositions | startingPositionX | startingPositionY | startingMoveCount |
+        | 100          | 0                 | 0                 | 0                 |
         
 

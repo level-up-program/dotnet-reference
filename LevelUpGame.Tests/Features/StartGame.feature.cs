@@ -76,8 +76,8 @@ namespace LevelUpGame.Test.Features
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Start the game")]
         [NUnit.Framework.CategoryAttribute("acceptance")]
-        [NUnit.Framework.TestCaseAttribute("100", "0", "0", null)]
-        public void StartTheGame(string numPositions, string startingPositionX, string startingPositionY, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("100", "0", "0", "0", null)]
+        public void StartTheGame(string numPositions, string startingPositionX, string startingPositionY, string startingMoveCount, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "acceptance"};
@@ -90,6 +90,7 @@ namespace LevelUpGame.Test.Features
             argumentsOfScenario.Add("numPositions", numPositions);
             argumentsOfScenario.Add("startingPositionX", startingPositionX);
             argumentsOfScenario.Add("startingPositionY", startingPositionY);
+            argumentsOfScenario.Add("startingMoveCount", startingMoveCount);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Start the game", @"    Using the default character, start the game and make sure the map is created and the character is placed on it. If my game has a random starting position, I'll need to have a GIVEN that allows me to use a FakeGame that lets me pass a stubbed starting position.", tagsOfScenario, argumentsOfScenario, featureTags);
 #line 5
 this.ScenarioInitialize(scenarioInfo);
@@ -114,7 +115,7 @@ this.ScenarioInitialize(scenarioInfo);
     testRunner.And(string.Format("the Game sets the character\'s Y position to {0}", startingPositionY), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 12
-    testRunner.And("the move count is <startingMoveCount>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.And(string.Format("the move count is {0}", startingMoveCount), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
