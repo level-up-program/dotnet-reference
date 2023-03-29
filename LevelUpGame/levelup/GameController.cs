@@ -24,7 +24,6 @@ namespace levelup
         }
 
         // Pre-implemented to demonstrate ATDD
-        // TODO: Update this if it does not match your design
         public void CreateCharacter(String name)
         {
             if (name != null && !name.Equals(""))
@@ -39,7 +38,7 @@ namespace levelup
 
         public void StartGame()
         {
-            // TODO: Implement startGame - Should probably create tiles and put the character
+            // TODO: Implement startGame - Should probably create positions and put the character
             // on them?
             // TODO: Should also update the game status?
         }
