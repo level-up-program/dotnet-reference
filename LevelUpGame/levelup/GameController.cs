@@ -2,8 +2,7 @@ namespace levelup
 {
     public class GameController
     {
-        // TODO: If your stakeholder wants to call this CHARACTER, change var name for
-        // low representational gap
+        // TODO: Is this what you want your default character name to be?
         public readonly string DEFAULT_CHARACTER_NAME = "Character";
 
         public record struct GameStatus(
