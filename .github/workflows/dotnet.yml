@@ -2,14 +2,14 @@ name: .NET
 
 on:
   push:
-    branches: [ main ]
+    branches: [ develop, main ]
   pull_request:
     branches: [ main ]
 
 jobs:
   build-and-test:
 
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
     - uses: actions/checkout@v3
@@ -20,7 +20,8 @@ jobs:
         dotnet-version: 6.0.x
 
     - name: Restore dependencies
-      run: make bootstrap
+      run: |
+        make bootstrap
 
     - name: Build
       run: make cibuild
@@ -29,7 +30,7 @@ jobs:
       run: make test
 
   acceptance-test:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
     - uses: actions/checkout@v3
@@ -40,13 +41,14 @@ jobs:
         dotnet-version: 6.0.x
 
     - name: Restore dependencies
-      run: make bootstrap
+      run: | 
+        make bootstrap
 
     - name: Build
       run: make cibuild
 
     - name: Run acceptance tests
-      run: dotnet test --filter "TestCategory=acceptance"
+      run: make citest-acceptance
 
     - name: Copy results
       if: always()
@@ -54,11 +56,11 @@ jobs:
 
     - name: Export pretty results
       if: always()
-      run: export DOTNET_ROOT=$(which dotnet) & livingdoc test-assembly LevelUpGame.Tests/bin/Debug/net6.0/LevelUpGame.Tests.dll -t LevelUpGame.Tests/bin/Debug/net6.0/TestExecution.json -o test-results/TestOutput.html
+      run: export DOTNET_ROOT=$(which dotnet) & /home/ec2-user/.dotnet/tools/livingdoc test-assembly LevelUpGame.Tests/bin/Debug/net6.0/LevelUpGame.Tests.dll -t LevelUpGame.Tests/bin/Debug/net6.0/TestExecution.json -o test-results/TestOutput.html
 
     - name: Publish Tests
       if: always()
-      uses: peaceiris/actions-gh-pages@v3
+      uses: level-up-program-dev/actions-gh-pages@main
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./test-results
