@@ -40,6 +40,7 @@ cibuild:
 	dotnet build --no-restore
 
 citest:
+	export DOTNET_CLI_HOME=/home/ec2-user/.dotnet/
 	dotnet test --filter "TestCategory!=acceptance"
 
 citest-acceptance:
