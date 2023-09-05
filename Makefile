@@ -46,6 +46,3 @@ citest:
 citest-acceptance:
 	export DOTNET_CLI_HOME=/home/ec2-user/.dotnet/
 	dotnet test --filter "TestCategory=acceptance" --no-build --verbosity normal
-	cp -r LevelUpGame.Tests/resources ./test-results
-	dotnet tool install --tool-path /home/ec2-user/.dotnet/tools SpecFlow.Plus.LivingDoc.CLI
-	export DOTNET_ROOT=$(which dotnet) & /home/ec2-user/.dotnet/tools/livingdoc test-assembly LevelUpGame.Tests/bin/Debug/net6.0/LevelUpGame.Tests.dll -t LevelUpGame.Tests/bin/Debug/net6.0/TestExecution.json -o test-results/TestOutput.html
