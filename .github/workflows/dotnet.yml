@@ -19,11 +19,14 @@ jobs:
       with:
         dotnet-version: 6.0.x
 
+    - name: Boostrap
+      run: mkdir -p /home/ec2-user/.dotnet
+
     - name: Build
       run: make cibuild
 
     - name: Test
-      run: make test
+      run: make citest
 
   acceptance-test:
     runs-on: self-hosted
@@ -35,6 +38,9 @@ jobs:
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: 6.0.x
+
+    - name: Boostrap
+      run: mkdir -p /home/ec2-user/.dotnet
 
     - name: Build
       run: make cibuild
@@ -48,7 +54,7 @@ jobs:
 
     - name: Export pretty results
       if: always()
-      run: export DOTNET_ROOT=$(which dotnet) & /home/ec2-user/.dotnet/tools/livingdoc test-assembly LevelUpGame.Tests/bin/Debug/net6.0/LevelUpGame.Tests.dll -t LevelUpGame.Tests/bin/Debug/net6.0/TestExecution.json -o test-results/TestOutput.html
+      run: export DOTNET_CLI_HOME=/home/ec2-user/.dotnet & export DOTNET_ROOT=$(which dotnet) & /home/ec2-user/.dotnet/tools/livingdoc test-assembly LevelUpGame.Tests/bin/Debug/net6.0/LevelUpGame.Tests.dll -t LevelUpGame.Tests/bin/Debug/net6.0/TestExecution.json -o test-results/TestOutput.html
 
     - name: Publish Tests
       if: always()

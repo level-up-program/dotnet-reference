@@ -1,3 +1,4 @@
+.ONESHELL:
 .PHONY: bootstrap setup update run clean build test cibuild citest
 .DEFAULT_GOAL := help
 
@@ -27,15 +28,23 @@ test-acceptance: build
 
 test-all: test test-acceptance
 
-cibuild: bootstrap
-	dotnet build --no-restore
-
-citest-acceptance:
-	dotnet test --filter "TestCategory=acceptance" --no-build --verbosity normal
-	- cp -r LevelUpGame.Tests/resources ./test-results
-# May need export for M1 Mac Architecture
-	- dotnet tool install --tool-path /home/ec2-user/.dotnet/tools SpecFlow.Plus.LivingDoc.CLI
-	- export DOTNET_ROOT=$(which dotnet) & /home/ec2-user/.dotnet/tools/livingdoc test-assembly LevelUpGame.Tests/bin/Debug/net6.0/LevelUpGame.Tests.dll -t LevelUpGame.Tests/bin/Debug/net6.0/TestExecution.json -o test-results/TestOutput.html
-
 run:
 	dotnet run --project LevelUpGame
+
+###
+## Needed for build on self-hosted runners. Do not run these locally
+###
+cibuild: 
+	- export DOTNET_CLI_HOME=/home/ec2-user/.dotnet/
+	- dotnet restore
+	- dotnet build --no-restore
+
+citest:
+	- dotnet test --filter "TestCategory!=acceptance"
+
+citest-acceptance:
+	- export DOTNET_CLI_HOME=/home/ec2-user/.dotnet/
+	- dotnet test --filter "TestCategory=acceptance" --no-build --verbosity normal
+	- cp -r LevelUpGame.Tests/resources ./test-results
+	- dotnet tool install --tool-path /home/ec2-user/.dotnet/tools SpecFlow.Plus.LivingDoc.CLI
+	- export DOTNET_ROOT=$(which dotnet) & /home/ec2-user/.dotnet/tools/livingdoc test-assembly LevelUpGame.Tests/bin/Debug/net6.0/LevelUpGame.Tests.dll -t LevelUpGame.Tests/bin/Debug/net6.0/TestExecution.json -o test-results/TestOutput.html
