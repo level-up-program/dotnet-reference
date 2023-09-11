@@ -44,5 +44,6 @@ citest:
 	dotnet test --filter "TestCategory!=acceptance"
 
 citest-acceptance:
+    - dotnet tool install --global SpecFlow.Plus.LivingDoc.CLI
 	export DOTNET_CLI_HOME=/home/ec2-user/.dotnet/
 	dotnet test --filter "TestCategory=acceptance" --no-build --verbosity normal
