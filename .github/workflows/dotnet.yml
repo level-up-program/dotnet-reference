@@ -60,7 +60,7 @@ jobs:
 
     - name: Bootstrap
       continue-on-error: true
-      run: dotnet tool install SpecFlow.Plus.LivingDoc.CLI --tool-path /home/ec2-user/.dotnet/tools
+      run: export DOTNET_CLI_HOME=/home/ec2-user/.dotnet & dotnet tool install SpecFlow.Plus.LivingDoc.CLI --tool-path /home/ec2-user/.dotnet/tools
 
     - name: Build
       run: make cibuild
