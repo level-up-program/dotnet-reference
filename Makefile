@@ -35,11 +35,14 @@ run:
 ## Needed for build on self-hosted runners. Do not run these locally
 ###
 cibuild: 
-	export DOTNET_CLI_HOME=/home/ec2-user/.dotnet/ & dotnet restore
-	export DOTNET_CLI_HOME=/home/ec2-user/.dotnet/ & dotnet build --no-restore
+	export DOTNET_CLI_HOME=/home/ec2-user/.dotnet/
+	dotnet restore
+	dotnet build --no-restore
 
 citest:
-	export DOTNET_CLI_HOME=/home/ec2-user/.dotnet/ & dotnet test --filter "TestCategory!=acceptance"
+	export DOTNET_CLI_HOME=/home/ec2-user/.dotnet/
+	dotnet test --filter "TestCategory!=acceptance"
 
 citest-acceptance:
-	export DOTNET_CLI_HOME=/home/ec2-user/.dotnet/ & dotnet test --filter "TestCategory=acceptance" --no-build --verbosity normal
+	export DOTNET_CLI_HOME=/home/ec2-user/.dotnet/
+	dotnet test --filter "TestCategory=acceptance" --no-build --verbosity normal
