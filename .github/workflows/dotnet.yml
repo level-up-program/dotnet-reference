@@ -32,7 +32,7 @@ jobs:
         dotnet-version: 6.0.x
 
     - name: Bootstrap
-      run: mkdir -p $HOME/.dotnet
+      run: mkdir -p /root/.dotnet
 
     - name: Build
       run: make cibuild
@@ -56,7 +56,7 @@ jobs:
         dotnet-version: 6.0.x
 
     - name: Bootstrap
-      run: mkdir -p $HOME/.dotnet
+      run: mkdir -p /root/.dotnet
 
     - name: Build
       run: make cibuild
@@ -70,7 +70,7 @@ jobs:
 
     - name: Export pretty results
       if: always()
-      run: export DOTNET_CLI_HOME=$HOME/.dotnet & export DOTNET_ROOT=$(which dotnet) & $HOME/.dotnet/tools/livingdoc test-assembly LevelUpGame.Tests/bin/Debug/net6.0/LevelUpGame.Tests.dll -t LevelUpGame.Tests/bin/Debug/net6.0/TestExecution.json -o test-results/TestOutput.html
+      run: export DOTNET_CLI_HOME=/root/.dotnet & export DOTNET_ROOT=$(which dotnet) & /root/.dotnet/tools/livingdoc test-assembly LevelUpGame.Tests/bin/Debug/net6.0/LevelUpGame.Tests.dll -t LevelUpGame.Tests/bin/Debug/net6.0/TestExecution.json -o test-results/TestOutput.html
 
     - name: Setup Pages
       uses: actions/configure-pages@v3
