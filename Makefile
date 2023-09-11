@@ -35,15 +35,15 @@ run:
 ## Needed for build on self-hosted runners. Do not run these locally
 ###
 cibuild: 
-	export DOTNET_CLI_HOME=/ec2_user/.dotnet/
+	export DOTNET_CLI_HOME=/ec2-user/.dotnet/
 	dotnet restore
 	dotnet build --no-restore
 
 citest:
-	export DOTNET_CLI_HOME=/ec2_user/.dotnet/
+	export DOTNET_CLI_HOME=/ec2-user/.dotnet/
 	dotnet test --filter "TestCategory!=acceptance"
 
 citest-acceptance:
-	- dotnet tool install SpecFlow.Plus.LivingDoc.CLI --tool-path /home/ec2_user/.dotnet/tools
-	export DOTNET_CLI_HOME=/ec2_user/.dotnet/
+	- dotnet tool install SpecFlow.Plus.LivingDoc.CLI --tool-path /home/ec2-user/.dotnet/tools
+	export DOTNET_CLI_HOME=/ec2-user/.dotnet/
 	dotnet test --filter "TestCategory=acceptance" --no-build --verbosity normal
