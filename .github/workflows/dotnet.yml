@@ -55,8 +55,12 @@ jobs:
       with:
         dotnet-version: 6.0.x
 
+    - name: Setup Env
+      run: mkdir -p /home/ec2-user/.dotnet/tools
+
     - name: Bootstrap
-      run: mkdir -p /home/ec2-user/.dotnet
+      continue-on-error: true
+      run: dotnet tool install SpecFlow.Plus.LivingDoc.CLI --tool-path /home/ec2-user/.dotnet/tools
 
     - name: Build
       run: make cibuild
