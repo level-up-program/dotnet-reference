@@ -60,7 +60,7 @@ jobs:
 
     - name: Bootstrap
       continue-on-error: true
-      run: export DOTNET_CLI_HOME=/home/ec2-user/.dotnet & dotnet tool install SpecFlow.Plus.LivingDoc.CLI --tool-path /home/ec2-user/.dotnet/tools
+      run: export DOTNET_CLI_HOME=/home/ec2-user/.dotnet; dotnet tool install SpecFlow.Plus.LivingDoc.CLI --tool-path /home/ec2-user/.dotnet/tools
 
     - name: Build
       run: make cibuild
@@ -74,7 +74,7 @@ jobs:
 
     - name: Export pretty results
       if: always()
-      run: export DOTNET_CLI_HOME=/home/ec2-user/.dotnet & export DOTNET_ROOT=$(which dotnet) & /home/ec2-user/.dotnet/tools/livingdoc test-assembly LevelUpGame.Tests/bin/Debug/net6.0/LevelUpGame.Tests.dll -t LevelUpGame.Tests/bin/Debug/net6.0/TestExecution.json -o test-results/TestOutput.html
+      run: export DOTNET_CLI_HOME=/home/ec2-user/.dotnet && export DOTNET_ROOT=$(which dotnet) && /home/ec2-user/.dotnet/tools/livingdoc test-assembly LevelUpGame.Tests/bin/Debug/net6.0/LevelUpGame.Tests.dll -t LevelUpGame.Tests/bin/Debug/net6.0/TestExecution.json -o test-results/TestOutput.html
 
     - name: Setup Pages
       uses: actions/configure-pages@v3
