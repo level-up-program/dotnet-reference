@@ -32,17 +32,13 @@ run:
 	dotnet run --project LevelUpGame
 
 ###
-## Needed for build on self-hosted runners. Do not run these locally
+## Goals for automated build
 ###
-cibuild: 
-	export DOTNET_CLI_HOME=/home/ec2-user/.dotnet/
-	dotnet restore
+cibuild: bootstrap
 	dotnet build --no-restore
 
 citest:
-	export DOTNET_CLI_HOME=/home/ec2-user/.dotnet/
 	dotnet test --filter "TestCategory!=acceptance"
 
 citest-acceptance:
-	export DOTNET_CLI_HOME=/home/ec2-user/.dotnet/
 	dotnet test --filter "TestCategory=acceptance" --no-build --verbosity normal
