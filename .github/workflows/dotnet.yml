@@ -2,7 +2,7 @@ name: .NET
 
 on:
   push:
-    branches: [ develop, main ]
+    branches: [ develop, main, syncpoint* ]
   pull_request:
     branches: [ main ]
 
@@ -21,7 +21,7 @@ concurrency:
 jobs:
   build-and-test:
 
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v3
@@ -32,7 +32,7 @@ jobs:
         dotnet-version: 6.0.x
 
     - name: Bootstrap
-      run: mkdir -p .dotnet
+      run: make bootstrap
 
     - name: Build
       run: make cibuild
@@ -45,7 +45,7 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v3
@@ -55,12 +55,8 @@ jobs:
       with:
         dotnet-version: 6.0.x
 
-    - name: Setup Env
-      run: mkdir -p /home/ec2-user/.dotnet/tools
-
     - name: Bootstrap
-      continue-on-error: true
-      run: export DOTNET_CLI_HOME=/home/ec2-user/.dotnet; dotnet tool install SpecFlow.Plus.LivingDoc.CLI --tool-path /home/ec2-user/.dotnet/tools
+      run: make bootstrap
 
     - name: Build
       run: make cibuild
@@ -74,7 +70,7 @@ jobs:
 
     - name: Export pretty results
       if: always()
-      run: export DOTNET_CLI_HOME=/home/ec2-user/.dotnet; export DOTNET_ROOT=$(which dotnet) & /home/ec2-user/.dotnet/tools/livingdoc test-assembly LevelUpGame.Tests/bin/Debug/net6.0/LevelUpGame.Tests.dll -t LevelUpGame.Tests/bin/Debug/net6.0/TestExecution.json -o test-results/TestOutput.html
+      run: export DOTNET_ROOT=$(which dotnet) & livingdoc test-assembly LevelUpGame.Tests/bin/Debug/net6.0/LevelUpGame.Tests.dll -t LevelUpGame.Tests/bin/Debug/net6.0/TestExecution.json -o test-results/TestOutput.html
 
     - name: Setup Pages
       uses: actions/configure-pages@v3
