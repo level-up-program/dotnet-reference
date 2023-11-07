@@ -1,5 +1,6 @@
 using Sharprompt;
 using System.Collections;
+using System.Net;
 namespace levelup.cli;
 class Game
 {
@@ -115,9 +116,8 @@ class Game
     {
         isGameStarted = true;
         gameController.StartGame();
-        // TODO: Update this prompt. Also, do you want to get the game status and tell
-        // the player where their character is?
         Console.WriteLine("Welcome to Forests and Monsters! You have entered a mysterious place.");
+        updateStatus(gameController.GetStatus());
     }
     static void MoveNorth()
     {
@@ -156,18 +156,18 @@ class Game
     static void PrintSummary()
     {
         Console.WriteLine("Exiting the mysterious land!");
-        foreach (GameController.GameStatus status in gameHistory)
-        {
-            // TODO: Override toString on game status to print pretty
-            Console.WriteLine(status);
-        }
-        // TODO: Print anything else you committed to in your mockup
+        Position startingPos = gameHistory.First().currentPosition;
+        Position endingPos = gameHistory.LastOrDefault().currentPosition;
+        int moveCount = gameHistory.LastOrDefault().moveCount;
+        
+        Console.WriteLine("You started at " + startingPos + ", ended at " + endingPos + " and moved " + moveCount + " times.");
 
     }
 
     private static void updateStatus(GameController.GameStatus status)
     {
         gameHistory.Add(status);
+        Console.WriteLine(status);
     }
 
 

@@ -1,5 +1,8 @@
 
 
+using System.ComponentModel;
+using System.Security.Cryptography.X509Certificates;
+
 namespace levelup
 {
     public class GameController
@@ -8,12 +11,16 @@ namespace levelup
         public Character? character { get; set; }
         public GameMap? gameMap { get; set; }
 
-        public record struct GameStatus(
+        public struct GameStatus{
             // TODO: Add other status data
-            String characterName,
-            Position currentPosition,
-            int moveCount
-        );
+            public String characterName { get; set; }
+            public Position currentPosition { get; set; }
+            public int moveCount { get; set; }
+
+            public override String ToString() {
+                    return characterName + " is on " + currentPosition;
+                }
+        }
 
         // TODO: Ensure this AND CLI commands match domain model
         public enum DIRECTION

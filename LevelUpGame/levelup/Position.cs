@@ -12,6 +12,10 @@ namespace levelup
             this.y = y;
         }
 
+        public override string ToString()
+        {
+            return "("+x+","+y+")";
+        }
 
 
     }
